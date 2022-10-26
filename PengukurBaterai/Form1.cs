@@ -11,12 +11,12 @@ namespace PengukurBaterai
         {
             PowerStatus ps = SystemInformation.PowerStatus;
 
-            ProgresBaterai.Value = (int)(ps.BatteryLifePercent * 100);
+            PercentageBar.Value = (int)(ps.BatteryLifePercent * 100);
             if (ps.BatteryLifeRemaining < 0)
-                LabelSisaWaktu.Text = "Time Left Before Charge = Unknown !!";
+                TimeLabel.Text = "Remaining Time = Unknown !!";
             else
-                LabelSisaWaktu.Text = "Time Left Before Charge = " + new TimeSpan(0, 0, ps.BatteryLifeRemaining);
-                Persentase.Text = ps.BatteryLifePercent.ToString("P");
+                TimeLabel.Text = "Remaining Time = " + new TimeSpan(0, 0, ps.BatteryLifeRemaining);
+                Percentage.Text = ps.BatteryLifePercent.ToString("P");
         } 
 
     }
