@@ -1,2 +1,2 @@
 # PengukurBaterai
-# Mencoba membuat API yang bisa merekam penggunaan persentase baterai
+Mencoba membuat API yang bisa merekam penggunaan persentase baterai
