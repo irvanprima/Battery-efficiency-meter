@@ -36,9 +36,9 @@
             this.Button1 = new System.Windows.Forms.Button();
             this.Hasil_Rekaman = new System.Windows.Forms.ListBox();
             this.Button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.Button3 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ProgresBaterai
@@ -71,9 +71,9 @@
             this.LabelSisaWaktu.Location = new System.Drawing.Point(17, 15);
             this.LabelSisaWaktu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelSisaWaktu.Name = "LabelSisaWaktu";
-            this.LabelSisaWaktu.Size = new System.Drawing.Size(412, 42);
+            this.LabelSisaWaktu.Size = new System.Drawing.Size(421, 42);
             this.LabelSisaWaktu.TabIndex = 2;
-            this.LabelSisaWaktu.Text = "Sisa waktu pemakaian = 00 : 00 : 00";
+            this.LabelSisaWaktu.Text = "Time left Before Charge = 00 : 00 : 00";
             this.LabelSisaWaktu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SisaWaktu
@@ -89,10 +89,9 @@
             this.Button1.Name = "Button1";
             this.Button1.Size = new System.Drawing.Size(808, 38);
             this.Button1.TabIndex = 3;
-            this.Button1.Text = "Mulai ";
+            this.Button1.Text = "Start Record";
             this.Button1.UseVisualStyleBackColor = true;
             this.Button1.UseWaitCursor = true;
-            
             // 
             // Hasil_Rekaman
             // 
@@ -113,9 +112,25 @@
             this.Button2.Name = "Button2";
             this.Button2.Size = new System.Drawing.Size(397, 38);
             this.Button2.TabIndex = 6;
-            this.Button2.Text = "Lap";
+            this.Button2.Text = "Stop";
             this.Button2.UseVisualStyleBackColor = true;
             this.Button2.UseWaitCursor = true;
+            // 
+            // Timer
+            // 
+            this.Timer.Enabled = true;
+            this.Timer.Interval = 1;
+            // 
+            // Button3
+            // 
+            this.Button3.Location = new System.Drawing.Point(430, 230);
+            this.Button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Button3.Name = "Button3";
+            this.Button3.Size = new System.Drawing.Size(395, 38);
+            this.Button3.TabIndex = 9;
+            this.Button3.Text = "Reset";
+            this.Button3.UseVisualStyleBackColor = true;
+            this.Button3.UseWaitCursor = true;
             // 
             // label1
             // 
@@ -129,23 +144,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "00 : 00 : 00 : 00";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Timer
-            // 
-            this.Timer.Enabled = true;
-            this.Timer.Interval = 1;
-            
-            // 
-            // Button3
-            // 
-            this.Button3.Location = new System.Drawing.Point(430, 230);
-            this.Button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Button3.Name = "Button3";
-            this.Button3.Size = new System.Drawing.Size(395, 38);
-            this.Button3.TabIndex = 9;
-            this.Button3.Text = "Reset";
-            this.Button3.UseVisualStyleBackColor = true;
-            this.Button3.UseWaitCursor = true;
             // 
             // Form1
             // 
@@ -177,8 +175,8 @@
         private Button Button1;
         private ListBox Hasil_Rekaman;
         private Button Button2;
-        private Label label1;
         private System.Windows.Forms.Timer Timer;
         private Button Button3;
+        private Label label1;
     }
 }

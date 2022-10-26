@@ -13,16 +13,11 @@ namespace PengukurBaterai
 
             ProgresBaterai.Value = (int)(ps.BatteryLifePercent * 100);
             if (ps.BatteryLifeRemaining < 0)
-                LabelSisaWaktu.Text = "Sisa waktu pemakaian = Tidak Diketahui !!";
+                LabelSisaWaktu.Text = "Time Left Before Charge = Unknown !!";
             else
-                LabelSisaWaktu.Text = "Sisa waktu pemakaian = " + new TimeSpan(0, 0, ps.BatteryLifeRemaining);
+                LabelSisaWaktu.Text = "Time Left Before Charge = " + new TimeSpan(0, 0, ps.BatteryLifeRemaining);
                 Persentase.Text = ps.BatteryLifePercent.ToString("P");
-        }
+        } 
 
-       
-
-
-
-        
     }
 }
