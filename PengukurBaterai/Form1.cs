@@ -43,13 +43,17 @@ namespace PengukurBaterai
                 hour++;
                 minute = 0;
             }
-            LabelHour.Text = hour.ToString();
-            LabelMinute.Text = minute.ToString();
-            LabelSecond.Text = second.ToString();
+            LabelHour.Text = appendZero(hour);
+            LabelMinute.Text = appendZero(minute);
+            LabelSecond.Text = appendZero(second);
         }
 
         private string appendZero(double str)
         {
+            if (str <= 9)
+                return "0" + str;
+            else
+                return str.ToString();
 
         }
 
@@ -61,6 +65,18 @@ namespace PengukurBaterai
         private void StopBTN_Click(object sender, EventArgs e)
         {
             Timer1.Stop();
+
         }
+
+        private void ResetBTN_Click(object sender, EventArgs e)
+        {
+            Timer1.Stop();
+            second = minute = hour = 0;
+            LabelHour.Text = appendZero(hour);
+            LabelMinute.Text = appendZero(minute);
+            LabelSecond.Text = appendZero(second);
+        }
+
+
     }
 }
