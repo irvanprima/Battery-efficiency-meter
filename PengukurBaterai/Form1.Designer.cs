@@ -33,30 +33,34 @@
             this.Percentage = new System.Windows.Forms.Label();
             this.TimeLabel = new System.Windows.Forms.Label();
             this.TimeLeft = new System.Windows.Forms.Timer(this.components);
-            this.StartRecord = new System.Windows.Forms.Button();
-            this.Hasil_Rekaman = new System.Windows.Forms.ListBox();
-            this.Stop = new System.Windows.Forms.Button();
-            this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.Reset = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.LabelHour = new System.Windows.Forms.Label();
+            this.LabelSecond = new System.Windows.Forms.Label();
+            this.LabelMinute = new System.Windows.Forms.Label();
+            this.StartBTN = new System.Windows.Forms.Button();
+            this.StopBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PercentageBar
             // 
             this.PercentageBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.PercentageBar.Location = new System.Drawing.Point(12, 37);
+            this.PercentageBar.Location = new System.Drawing.Point(17, 62);
+            this.PercentageBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PercentageBar.Name = "PercentageBar";
-            this.PercentageBar.Size = new System.Drawing.Size(566, 23);
+            this.PercentageBar.Size = new System.Drawing.Size(809, 36);
             this.PercentageBar.TabIndex = 0;
             // 
             // Percentage
             // 
             this.Percentage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Percentage.Location = new System.Drawing.Point(585, 37);
+            this.Percentage.Location = new System.Drawing.Point(836, 62);
+            this.Percentage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Percentage.Name = "Percentage";
-            this.Percentage.Size = new System.Drawing.Size(69, 23);
+            this.Percentage.Size = new System.Drawing.Size(99, 36);
             this.Percentage.TabIndex = 1;
             this.Percentage.Text = "0%";
             this.Percentage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -66,9 +70,10 @@
             this.TimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.TimeLabel.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TimeLabel.Location = new System.Drawing.Point(12, 9);
+            this.TimeLabel.Location = new System.Drawing.Point(17, 15);
+            this.TimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TimeLabel.Name = "TimeLabel";
-            this.TimeLabel.Size = new System.Drawing.Size(238, 25);
+            this.TimeLabel.Size = new System.Drawing.Size(359, 40);
             this.TimeLabel.TabIndex = 2;
             this.TimeLabel.Text = "Remaining Time = 00 : 00 : 00";
             this.TimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -79,82 +84,107 @@
             this.TimeLeft.Interval = 1000;
             this.TimeLeft.Tick += new System.EventHandler(this.SisaWaktu_Tick);
             // 
-            // StartRecord
+            // Timer1
             // 
-            this.StartRecord.Location = new System.Drawing.Point(12, 109);
-            this.StartRecord.Name = "StartRecord";
-            this.StartRecord.Size = new System.Drawing.Size(566, 23);
-            this.StartRecord.TabIndex = 3;
-            this.StartRecord.Text = "Start Record";
-            this.StartRecord.UseVisualStyleBackColor = true;
-            this.StartRecord.UseWaitCursor = true;
+            this.Timer1.Interval = 1000;
+            this.Timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // Hasil_Rekaman
+            // button1
             // 
-            this.Hasil_Rekaman.FormattingEnabled = true;
-            this.Hasil_Rekaman.ItemHeight = 15;
-            this.Hasil_Rekaman.Items.AddRange(new object[] {
-            " "});
-            this.Hasil_Rekaman.Location = new System.Drawing.Point(12, 168);
-            this.Hasil_Rekaman.Name = "Hasil_Rekaman";
-            this.Hasil_Rekaman.Size = new System.Drawing.Size(567, 94);
-            this.Hasil_Rekaman.TabIndex = 5;
+            this.button1.Location = new System.Drawing.Point(17, 262);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(195, 38);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Lap";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseWaitCursor = true;
             // 
-            // Stop
+            // listBox1
             // 
-            this.Stop.Location = new System.Drawing.Point(12, 138);
-            this.Stop.Name = "Stop";
-            this.Stop.Size = new System.Drawing.Size(278, 23);
-            this.Stop.TabIndex = 6;
-            this.Stop.Text = "Stop";
-            this.Stop.UseVisualStyleBackColor = true;
-            this.Stop.UseWaitCursor = true;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 25;
+            this.listBox1.Location = new System.Drawing.Point(18, 308);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(397, 129);
+            this.listBox1.TabIndex = 10;
             // 
-            // Timer
+            // LabelHour
             // 
-            this.Timer.Enabled = true;
-            this.Timer.Interval = 1;
+            this.LabelHour.AutoSize = true;
+            this.LabelHour.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LabelHour.Location = new System.Drawing.Point(111, 149);
+            this.LabelHour.Name = "LabelHour";
+            this.LabelHour.Size = new System.Drawing.Size(67, 54);
+            this.LabelHour.TabIndex = 11;
+            this.LabelHour.Text = "00";
+            this.LabelHour.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Reset
+            // LabelSecond
             // 
-            this.Reset.Location = new System.Drawing.Point(301, 138);
-            this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(276, 23);
-            this.Reset.TabIndex = 9;
-            this.Reset.Text = "Reset";
-            this.Reset.UseVisualStyleBackColor = true;
-            this.Reset.UseWaitCursor = true;
+            this.LabelSecond.AutoSize = true;
+            this.LabelSecond.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LabelSecond.Location = new System.Drawing.Point(257, 149);
+            this.LabelSecond.Name = "LabelSecond";
+            this.LabelSecond.Size = new System.Drawing.Size(67, 54);
+            this.LabelSecond.TabIndex = 13;
+            this.LabelSecond.Text = "00";
+            this.LabelSecond.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // LabelMinute
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.Font = new System.Drawing.Font("Futura Md BT", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(170, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(254, 29);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "00 : 00 : 00 : 00";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelMinute.AutoSize = true;
+            this.LabelMinute.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LabelMinute.Location = new System.Drawing.Point(184, 149);
+            this.LabelMinute.Name = "LabelMinute";
+            this.LabelMinute.Size = new System.Drawing.Size(67, 54);
+            this.LabelMinute.TabIndex = 14;
+            this.LabelMinute.Text = "00";
+            this.LabelMinute.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // StartBTN
+            // 
+            this.StartBTN.Location = new System.Drawing.Point(17, 220);
+            this.StartBTN.Name = "StartBTN";
+            this.StartBTN.Size = new System.Drawing.Size(195, 38);
+            this.StartBTN.TabIndex = 15;
+            this.StartBTN.Text = "Start";
+            this.StartBTN.UseVisualStyleBackColor = true;
+            this.StartBTN.Click += new System.EventHandler(this.Start_Click);
+            // 
+            // StopBTN
+            // 
+            this.StopBTN.Location = new System.Drawing.Point(220, 221);
+            this.StopBTN.Name = "StopBTN";
+            this.StopBTN.Size = new System.Drawing.Size(195, 37);
+            this.StopBTN.TabIndex = 16;
+            this.StopBTN.Text = "Stop";
+            this.StopBTN.UseVisualStyleBackColor = true;
+            this.StopBTN.Click += new System.EventHandler(this.StopBTN_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 289);
-            this.Controls.Add(this.Reset);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Stop);
-            this.Controls.Add(this.Hasil_Rekaman);
-            this.Controls.Add(this.StartRecord);
+            this.ClientSize = new System.Drawing.Size(936, 480);
+            this.Controls.Add(this.StopBTN);
+            this.Controls.Add(this.StartBTN);
+            this.Controls.Add(this.LabelMinute);
+            this.Controls.Add(this.LabelSecond);
+            this.Controls.Add(this.LabelHour);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.TimeLabel);
             this.Controls.Add(this.Percentage);
             this.Controls.Add(this.PercentageBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -163,11 +193,13 @@
         private Label Percentage;
         private Label TimeLabel;
         private System.Windows.Forms.Timer TimeLeft;
-        private Button StartRecord;
-        private ListBox Hasil_Rekaman;
-        private Button Stop;
-        private System.Windows.Forms.Timer Timer;
-        private Button Reset;
-        private Label label1;
+        private System.Windows.Forms.Timer Timer1;
+        private Button button1;
+        private ListBox listBox1;
+        private Label LabelHour;
+        private Label LabelSecond;
+        private Label LabelMinute;
+        private Button StartBTN;
+        private Button StopBTN;
     }
 }
