@@ -15,68 +15,51 @@ namespace PengukurBaterai
 
             PercentageBar.Value = (int)(ps.BatteryLifePercent * 100);
             if (ps.BatteryLifeRemaining < 0)
-                TimeLabel.Text = "Remaining Time = Unknown !!";
+                TimeLabel.Text = "charging";
             else
                 TimeLabel.Text = "Remaining Time = " + new TimeSpan(0 , 0 , ps.BatteryLifeRemaining);
                 Percentage.Text = ps.BatteryLifePercent.ToString("P");
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
+        //Left
+        System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+        private void Start_But_Click(object sender, EventArgs e)
+        {
+            Stopwatch_Timer.Start();
+            stopwatch.Start();
+            //Start_But.Enabled= false;
         }
 
-        int second;
-        int minute;
-        int hour;
-        private void Timer1_Tick(object sender, EventArgs e)
+        private void timer2_Tick(object sender, EventArgs e)
         {
-            second++;
-
-            if (second > 59)
-            {
-                minute++;
-                second = 0;
-            }
-
-            if (minute > 59)
-            {
-                hour++;
-                minute = 0;
-            }
-            LabelHour.Text = appendZero(hour);
-            LabelMinute.Text = appendZero(minute);
-            LabelSecond.Text = appendZero(second);
+            TimeSpan Lap = stopwatch.Elapsed;
+            lbl_Time.Text = string.Format("{0:00} : {1:00} : {2:00} : {3:00}",
+                Math.Floor(Lap.TotalHours),Lap.Minutes, Lap.Seconds,Lap.Milliseconds);
+        }
+        int angka_depan = 0;
+        private void Lap_But_Click(object sender, EventArgs e)
+        {
+            angka_depan += 1;
+            listBox1.Items.Add(angka_depan+".  "+lbl_Time.Text+" =   "+ Percentage.Text);
         }
 
-        private string appendZero(double str)
+        private void Stop_But_Click(object sender, EventArgs e)
         {
-            if (str <= 9)
-                return "0" + str;
-            else
-                return str.ToString();
-
+            Stopwatch_Timer.Stop();
+            stopwatch.Stop();
+            //Start_But.Enabled= false;
         }
 
-        private void Start_Click(object sender, EventArgs e)
+        private void Reset_But_Click(object sender, EventArgs e)
         {
-            Timer1.Start();
+            stopwatch.Reset();
+            lbl_Time.Text = "00 : 00 : 00 : 000";
+            listBox1.Items.Clear();
+            angka_depan = 0;
+            //Start_But.Enabled= false;
         }
 
-        private void StopBTN_Click(object sender, EventArgs e)
-        {
-            Timer1.Stop();
-
-        }
-
-        private void ResetBTN_Click(object sender, EventArgs e)
-        {
-            Timer1.Stop();
-            second = minute = hour = 0;
-            LabelHour.Text = appendZero(hour);
-            LabelMinute.Text = appendZero(minute);
-            LabelSecond.Text = appendZero(second);
-        }
-
+        //Right
 
     }
 }
