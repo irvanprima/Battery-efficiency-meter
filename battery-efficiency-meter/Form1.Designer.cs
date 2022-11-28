@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.TimeLabel = new System.Windows.Forms.Label();
             this.PercentageBar = new System.Windows.Forms.ProgressBar();
             this.Percentage = new System.Windows.Forms.Label();
@@ -43,6 +43,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.UpdateTimer = new System.Windows.Forms.Timer(this.components);
+            this.Stopwatch_Timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,6 +94,7 @@
             this.Start_But.TabIndex = 4;
             this.Start_But.Text = "Start";
             this.Start_But.UseVisualStyleBackColor = true;
+            this.Start_But.Click += new System.EventHandler(this.Start_But_Click);
             // 
             // Lap_But
             // 
@@ -102,6 +104,7 @@
             this.Lap_But.TabIndex = 5;
             this.Lap_But.Text = "Lap";
             this.Lap_But.UseVisualStyleBackColor = true;
+            this.Lap_But.Click += new System.EventHandler(this.Lap_But_Click);
             // 
             // Reset_But
             // 
@@ -111,6 +114,7 @@
             this.Reset_But.TabIndex = 7;
             this.Reset_But.Text = "Reset";
             this.Reset_But.UseVisualStyleBackColor = true;
+            this.Reset_But.Click += new System.EventHandler(this.Reset_But_Click);
             // 
             // Stop_But
             // 
@@ -120,6 +124,7 @@
             this.Stop_But.TabIndex = 6;
             this.Stop_But.Text = "Stop";
             this.Stop_But.UseVisualStyleBackColor = true;
+            this.Stop_But.Click += new System.EventHandler(this.Stop_But_Click);
             // 
             // listBox1
             // 
@@ -133,16 +138,16 @@
             // 
             // chart1
             // 
-            chartArea11.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea11);
-            legend11.Name = "Legend1";
-            this.chart1.Legends.Add(legend11);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(447, 149);
             this.chart1.Name = "chart1";
-            series11.ChartArea = "ChartArea1";
-            series11.Legend = "Legend1";
-            series11.Name = "Series1";
-            this.chart1.Series.Add(series11);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(472, 317);
             this.chart1.TabIndex = 9;
             this.chart1.Text = "chart1";
@@ -152,6 +157,10 @@
             this.UpdateTimer.Enabled = true;
             this.UpdateTimer.Interval = 1000;
             this.UpdateTimer.Tick += new System.EventHandler(this.UpdateTimer_Tick);
+            // 
+            // Stopwatch_Timer
+            // 
+            this.Stopwatch_Timer.Tick += new System.EventHandler(this.Stopwatch_Timer_Tick);
             // 
             // Form1
             // 
@@ -192,6 +201,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Timer UpdateTimer;
+        private System.Windows.Forms.Timer Stopwatch_Timer;
     }
 }
 
