@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.TimeLabel = new System.Windows.Forms.Label();
             this.PercentageBar = new System.Windows.Forms.ProgressBar();
             this.Percentage = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.Stop_But = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.UpdateTimer = new System.Windows.Forms.Timer(this.components);
+            this.Remaining_Timer = new System.Windows.Forms.Timer(this.components);
             this.Stopwatch_Timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -138,25 +138,26 @@
             // 
             // chart1
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(447, 149);
             this.chart1.Name = "chart1";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart1.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "battery";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(472, 317);
             this.chart1.TabIndex = 9;
             this.chart1.Text = "chart1";
             // 
-            // UpdateTimer
+            // Remaining_Timer
             // 
-            this.UpdateTimer.Enabled = true;
-            this.UpdateTimer.Interval = 1000;
-            this.UpdateTimer.Tick += new System.EventHandler(this.UpdateTimer_Tick);
+            this.Remaining_Timer.Enabled = true;
+            this.Remaining_Timer.Interval = 1000;
+            this.Remaining_Timer.Tick += new System.EventHandler(this.UpdateTimer_Tick);
             // 
             // Stopwatch_Timer
             // 
@@ -200,7 +201,7 @@
         private System.Windows.Forms.Button Stop_But;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Timer UpdateTimer;
+        private System.Windows.Forms.Timer Remaining_Timer;
         private System.Windows.Forms.Timer Stopwatch_Timer;
     }
 }

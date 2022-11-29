@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace battery_efficiency_meter
 {
@@ -44,12 +45,19 @@ namespace battery_efficiency_meter
             lbl_Time.Text = string.Format("{0:00} : {1:00} : {2:00} : {3:00}",
                 Math.Floor(Lap.TotalHours), Lap.Minutes, Lap.Seconds, Lap.Milliseconds);
         }
-        int angka_depan = 0;
+        int num = 0;
+        public object BatteryLifePercent { get; private set; }
+
         private void Lap_But_Click(object sender, EventArgs e)
         {
-            angka_depan += 1;
-            listBox1.Items.Add(angka_depan + ".  " + lbl_Time.Text + " =   " + Percentage.Text);
+            PowerStatus ps = SystemInformation.PowerStatus;
+            num += 1;
+            listBox1.Items.Add(num + ".  " + lbl_Time.Text + " =   " + Percentage.Text);
+
+            var batteryLifePercent = Convert.ToInt32(ps.BatteryLifePercent);            
+            chart1.Series["battery"].Points.AddXY(num,ps.BatteryLifePercent * 100);
         }
+        
 
         private void Stop_But_Click(object sender, EventArgs e)
         {
@@ -63,9 +71,12 @@ namespace battery_efficiency_meter
             stopwatch.Reset();
             lbl_Time.Text = "00 : 00 : 00 : 000";
             listBox1.Items.Clear();
-            angka_depan = 0;
+            num = 0;
+            
             //Start_But.Enabled= false;
         }
+
+        
     }
 
 }
