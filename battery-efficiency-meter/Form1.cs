@@ -31,13 +31,39 @@ namespace battery_efficiency_meter
                 Percentage.Text = string.Format($"{ps.BatteryLifePercent * 100} %");            
         }
 
-        //Stopwatcch
+        //Stopwatch
+        //Chart
         System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+        //int A = 1;
+        int B = 1;  
         private void Start_But_Click(object sender, EventArgs e)
         {
-            Stopwatch_Timer.Start();
-            stopwatch.Start();
-            //Start_But.Enabled= false;
+            Lap_But.Enabled = true;
+            if (B == 1)
+            {
+                //
+                Stopwatch_Timer.Start();
+                stopwatch.Start();
+                //
+                PowerStatus ps = SystemInformation.PowerStatus;
+                //int = ayam;
+                listBox2.Items.Add(B++ + ".  " + lbl_Time.Text + " =   " + Percentage.Text);
+
+                var batteryLifePercent = Convert.ToInt32(ps.BatteryLifePercent);
+                chart1.Series["battery"].Points.AddXY(num, ps.BatteryLifePercent * 100);
+                //
+                //Start_But.Enabled = false;
+                //listBox2 = null;
+                
+            }
+            else
+            {
+                Stopwatch_Timer.Start();
+                stopwatch.Start();
+                
+            }
+            Start_But.Enabled = false;
+
         }
         private void Stopwatch_Timer_Tick(object sender, EventArgs e)
         {
@@ -46,13 +72,13 @@ namespace battery_efficiency_meter
                 Math.Floor(Lap.TotalHours), Lap.Minutes, Lap.Seconds, Lap.Milliseconds);
         }
         int num = 0;
-        public object BatteryLifePercent { get; private set; }
-
+        //public object BatteryLifePercent { get; private set; }
+        int num2 =+ 2;
         private void Lap_But_Click(object sender, EventArgs e)
         {
             PowerStatus ps = SystemInformation.PowerStatus;
-            num += 1;
-            listBox1.Items.Add(num + ".  " + lbl_Time.Text + " =   " + Percentage.Text);
+            //num +=1;
+            listBox1.Items.Add(num2++ + ".  " + lbl_Time.Text + " =   " + Percentage.Text);
 
             var batteryLifePercent = Convert.ToInt32(ps.BatteryLifePercent);            
             chart1.Series["battery"].Points.AddXY(num,ps.BatteryLifePercent * 100);
@@ -64,6 +90,8 @@ namespace battery_efficiency_meter
             Stopwatch_Timer.Stop();
             stopwatch.Stop();
             //Start_But.Enabled= false;
+            Start_But.Enabled = true;
+            //listBox2.Enabled = false;
         }
 
         private void Reset_But_Click(object sender, EventArgs e)
@@ -71,9 +99,14 @@ namespace battery_efficiency_meter
             stopwatch.Reset();
             lbl_Time.Text = "00 : 00 : 00 : 000";
             listBox1.Items.Clear();
+            listBox2.Items.Clear();
             num = 0;
-            
-            //Start_But.Enabled= false;
+            num2= 2;
+            //A = 1;
+            Lap_But.Enabled = false;
+            B = 1;
+            chart1.Series["battery"].Points.Clear();
+            Start_But.Enabled = true;
         }
 
         
