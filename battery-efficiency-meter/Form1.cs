@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.IO;
 
 namespace battery_efficiency_meter
 {
@@ -85,6 +86,7 @@ namespace battery_efficiency_meter
         }
         
 
+        //stop but = pause
         private void Stop_But_Click(object sender, EventArgs e)
         {
             Stopwatch_Timer.Stop();
@@ -96,17 +98,93 @@ namespace battery_efficiency_meter
 
         private void Reset_But_Click(object sender, EventArgs e)
         {
-            stopwatch.Reset();
-            lbl_Time.Text = "00 : 00 : 00 : 000";
-            listBox1.Items.Clear();
-            listBox2.Items.Clear();
-            num = 0;
-            num2= 2;
-            //A = 1;
-            Lap_But.Enabled = false;
-            B = 1;
-            chart1.Series["battery"].Points.Clear();
+            string message = "Are you sure want to reset this record?";
+            string title = "Reset all record battery";
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+            {
+                stopwatch.Reset();
+                lbl_Time.Text = "00 : 00 : 00 : 000";
+                listBox1.Items.Clear();
+                listBox2.Items.Clear();
+                num = 0;
+                num2 = 2;
+                //A = 1;
+                Lap_But.Enabled = false;
+                B = 1;
+                chart1.Series["battery"].Points.Clear();
+                Start_But.Enabled = true;
+                Reset_But.Enabled = false;
+            }
+            else
+            {
+                //do nothing
+            }
+        }
+
+        private void write_data_Click(object sender, EventArgs e)
+        {
+            //otomatis pause saat akan download data dan button pause = false
+            Stopwatch_Timer.Stop();
+            stopwatch.Stop();            
             Start_But.Enabled = true;
+            Pause_But.Enabled = false;
+
+
+            // Data yang akan ditulis ke file CSV
+            string data1 = lbl_Time.Text;
+            string data2 = Percentage.Text;
+
+
+            // Gabungkan data1 dan data2 dengan menambahkan koma sebagai pemisah
+            //string data = data1 + "," + data2;
+
+            // Buat objek SaveFileDialog
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+            // Atur filter untuk hanya menampilkan file CSV
+            saveFileDialog.Filter = "CSV files (*.csv)|*.csv";
+
+            // Atur default extension untuk file CSV
+            saveFileDialog.DefaultExt = "csv";
+
+            // Atur title dari file explorer
+            saveFileDialog.Title = "Save data to CSV file";
+
+            // Tampilkan file explorer dan simpan file jika pengguna memilih file dan mengklik tombol Save
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Buka file CSV untuk menulis
+                using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
+                {
+                    // Tulis baris ke file CSV
+                    //sw.WriteLine(data);
+                    //sw.Write(data1 + ",");
+                    //sw.WriteLine(data2);
+                    //sw.WriteLine(data1 + "," + data2);
+                    //sw.WriteLine(data1 + data2);                    
+                    //sw.WriteLine(data1 + "," + data2);
+                    
+                    sw.WriteLine("Start Record :");
+                    foreach (object item in listBox2.Items)
+                    {
+                        // Tulis baris ke file CSV
+                        
+                        sw.WriteLine(item + "\n"); 
+                    }
+
+                    sw.WriteLine("Record Result :");
+                    foreach (object item in listBox1.Items)
+                    {
+                        // Tulis baris ke file CSV                        
+                        sw.WriteLine(item);
+                    }
+
+
+
+                }
+            }
         }
 
         
