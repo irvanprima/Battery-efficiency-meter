@@ -1,2 +1,2 @@
 # PengukurBaterai
-Mencoba membuat API yang bisa merekam penggunaan persentase baterai
+Aplikasi untuk mengukur tingkat efisiensi penggunaan baterai pada perangkat, yang dilengkapi fitur write data
