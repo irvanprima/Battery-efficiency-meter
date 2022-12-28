@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.TimeLabel = new System.Windows.Forms.Label();
             this.PercentageBar = new System.Windows.Forms.ProgressBar();
             this.Percentage = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.Record_But = new System.Windows.Forms.Button();
             this.Reset_But = new System.Windows.Forms.Button();
             this.Pause_But = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Remaining_Timer = new System.Windows.Forms.Timer(this.components);
             this.Stopwatch_Timer = new System.Windows.Forms.Timer(this.components);
@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.write_data = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +79,7 @@
             this.Percentage.Name = "Percentage";
             this.Percentage.Size = new System.Drawing.Size(67, 25);
             this.Percentage.TabIndex = 2;
-            this.Percentage.Text = "100 %";
+            this.Percentage.Text = "0 %";
             this.Percentage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl_Time
@@ -96,8 +97,8 @@
             // Start_But
             // 
             this.Start_But.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Start_But.Location = new System.Drawing.Point(68, 96);
-            this.Start_But.Margin = new System.Windows.Forms.Padding(2);
+            this.Start_But.Location = new System.Drawing.Point(62, 96);
+            this.Start_But.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Start_But.Name = "Start_But";
             this.Start_But.Size = new System.Drawing.Size(109, 28);
             this.Start_But.TabIndex = 4;
@@ -109,8 +110,8 @@
             // 
             this.Record_But.Enabled = false;
             this.Record_But.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Record_But.Location = new System.Drawing.Point(314, 96);
-            this.Record_But.Margin = new System.Windows.Forms.Padding(2);
+            this.Record_But.Location = new System.Drawing.Point(308, 96);
+            this.Record_But.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Record_But.Name = "Record_But";
             this.Record_But.Size = new System.Drawing.Size(109, 28);
             this.Record_But.TabIndex = 5;
@@ -122,8 +123,8 @@
             // 
             this.Reset_But.Enabled = false;
             this.Reset_But.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reset_But.Location = new System.Drawing.Point(437, 96);
-            this.Reset_But.Margin = new System.Windows.Forms.Padding(2);
+            this.Reset_But.Location = new System.Drawing.Point(431, 96);
+            this.Reset_But.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Reset_But.Name = "Reset_But";
             this.Reset_But.Size = new System.Drawing.Size(109, 28);
             this.Reset_But.TabIndex = 7;
@@ -135,8 +136,8 @@
             // 
             this.Pause_But.Enabled = false;
             this.Pause_But.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pause_But.Location = new System.Drawing.Point(191, 96);
-            this.Pause_But.Margin = new System.Windows.Forms.Padding(2);
+            this.Pause_But.Location = new System.Drawing.Point(185, 96);
+            this.Pause_But.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Pause_But.Name = "Pause_But";
             this.Pause_But.Size = new System.Drawing.Size(109, 28);
             this.Pause_But.TabIndex = 6;
@@ -144,46 +145,35 @@
             this.Pause_But.UseVisualStyleBackColor = true;
             this.Pause_But.Click += new System.EventHandler(this.Pause_But_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(10, 207);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(253, 379);
-            this.listBox1.TabIndex = 8;
-            // 
             // chart1
             // 
             this.chart1.BorderlineColor = System.Drawing.Color.Black;
             this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea4.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend4.IsTextAutoFit = false;
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(267, 131);
-            this.chart1.Margin = new System.Windows.Forms.Padding(2);
+            this.chart1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.LabelBorderWidth = 5;
-            series2.Legend = "Legend1";
-            series2.MarkerSize = 1;
-            series2.Name = "Battery";
-            series2.YValuesPerPoint = 2;
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(470, 455);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.LabelBorderWidth = 5;
+            series4.Legend = "Legend1";
+            series4.MarkerSize = 1;
+            series4.Name = "Battery";
+            series4.YValuesPerPoint = 2;
+            this.chart1.Series.Add(series4);
+            this.chart1.Size = new System.Drawing.Size(470, 453);
             this.chart1.TabIndex = 9;
             this.chart1.Text = "chart1";
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.Name = "Title1";
-            title2.Text = "Battery Chart";
-            this.chart1.Titles.Add(title2);
+            title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title4.Name = "Title1";
+            title4.Text = "Battery Chart";
+            this.chart1.Titles.Add(title4);
             // 
             // Remaining_Timer
             // 
@@ -197,13 +187,14 @@
             // 
             // listBox2
             // 
+            this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 25;
             this.listBox2.Location = new System.Drawing.Point(10, 153);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(253, 29);
+            this.listBox2.Size = new System.Drawing.Size(253, 27);
             this.listBox2.TabIndex = 10;
             // 
             // label1
@@ -234,14 +225,26 @@
             // 
             this.write_data.Enabled = false;
             this.write_data.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.write_data.Location = new System.Drawing.Point(560, 96);
-            this.write_data.Margin = new System.Windows.Forms.Padding(2);
+            this.write_data.Location = new System.Drawing.Point(554, 96);
+            this.write_data.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.write_data.Name = "write_data";
-            this.write_data.Size = new System.Drawing.Size(121, 28);
+            this.write_data.Size = new System.Drawing.Size(133, 28);
             this.write_data.TabIndex = 13;
-            this.write_data.Text = "Download Data";
+            this.write_data.Text = "Download Record";
             this.write_data.UseVisualStyleBackColor = true;
             this.write_data.Click += new System.EventHandler(this.write_data_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 25;
+            this.listBox1.Location = new System.Drawing.Point(10, 207);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(253, 377);
+            this.listBox1.TabIndex = 14;
             // 
             // Form1
             // 
@@ -250,12 +253,11 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(748, 396);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.write_data);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.chart1);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.Reset_But);
             this.Controls.Add(this.Pause_But);
             this.Controls.Add(this.Record_But);
@@ -264,10 +266,12 @@
             this.Controls.Add(this.Percentage);
             this.Controls.Add(this.PercentageBar);
             this.Controls.Add(this.TimeLabel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Controls.Add(this.chart1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Battery Efficiency Meter";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -284,7 +288,6 @@
         private System.Windows.Forms.Button Record_But;
         private System.Windows.Forms.Button Reset_But;
         private System.Windows.Forms.Button Pause_But;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Timer Remaining_Timer;
         private System.Windows.Forms.Timer Stopwatch_Timer;
@@ -292,6 +295,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button write_data;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
