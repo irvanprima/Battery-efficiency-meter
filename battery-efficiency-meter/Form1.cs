@@ -54,14 +54,22 @@ namespace battery_efficiency_meter
             }
             */
 
-            PowerStatus ps = SystemInformation.PowerStatus;
+            try
+            {
+                PowerStatus ps = SystemInformation.PowerStatus;
 
-            PercentageBar.Value = (int)(ps.BatteryLifePercent * 100);
-            if (ps.BatteryLifeRemaining < 0)
-                TimeLabel.Text = "Charging";
-            else
-                TimeLabel.Text = "Remaining Time = " + new TimeSpan(0, 0, ps.BatteryLifeRemaining);
-            Percentage.Text = string.Format($"{ps.BatteryLifePercent * 100} %");
+                PercentageBar.Value = (int)(ps.BatteryLifePercent * 100);
+                if (ps.BatteryLifeRemaining < 0)
+                    TimeLabel.Text = "Charging";
+                else
+                    TimeLabel.Text = "Remaining Time = " + new TimeSpan(0, 0, ps.BatteryLifeRemaining);
+                Percentage.Text = string.Format($"{ps.BatteryLifePercent * 100} %");
+            }
+            catch (ManagementException ex)
+            {
+                // Tampilkan pesan error jika terjadi exception
+                MessageBox.Show("Error: " + ex.Message);
+            }
 
 
 
@@ -222,7 +230,7 @@ namespace battery_efficiency_meter
                     string title = "Confirmation";                    
 
                     //Show the MessageBox with OK and Cancel buttons
-                    DialogResult result = MessageBox.Show(message + "\n"  + saveFileDialog.FileName +"\n" + "\n" + message2 , title, MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    DialogResult result = MessageBox.Show(message + "\n"  + saveFileDialog.FileName +"\n\n" + message2 , title, MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
                     //If the user clicks the custom button, open the CSV file                    
                     if (result == DialogResult.OK)
